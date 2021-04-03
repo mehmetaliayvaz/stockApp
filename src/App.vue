@@ -1,6 +1,8 @@
 <template>
   <div id="app">
+
     <Header></Header>
+
     <div class="container">
       <div class="Cards">
         <Card></Card>
@@ -9,6 +11,7 @@
         <Card></Card>
       </div>
       <router-view></router-view>
+    
     </div>
   </div>
 </template>

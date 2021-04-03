@@ -1,0 +1,18 @@
+.ProductLists{
+  margin-top: 40px;
+  box-shadow: $shadow;
+
+
+  table{
+    width: 100%;
+    border-collapse: collapse;
+
+    th{
+      border-bottom: 2px solid #eee;
+      color: black;
+      text-align: left;
+      padding: 15px;
+    }
+  }
+
+}

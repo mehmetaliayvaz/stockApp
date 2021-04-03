@@ -1,0 +1,17 @@
+tr{
+
+  td{
+
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+
+    img{
+      max-width: 50px;
+      max-height: 50px;
+      border-radius: 3px;
+      box-shadow: $shadow;
+    }
+
+  }
+
+}
