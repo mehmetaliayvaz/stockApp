@@ -13,7 +13,6 @@ $main-color: #7D7D7D;
   font-size: 16px;
   color: $main-color;
   list-style-type: none;
-  text-decoration: none;
   margin: 0;
 }
 
@@ -24,6 +23,7 @@ $main-color: #7D7D7D;
 
 ul{
   margin: 0;
+  padding: 0;
 }
 
 .container{

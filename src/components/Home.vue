@@ -3,15 +3,15 @@
 
     <div class="Home-top">
       <Search></Search>
-      <Buton class="Home-top-buton" ></Buton>
-      <button @click="addShowChange">göster/gizle</button>
+      <Buton class="Home-top-buton" @click.native="addShowChange"></Buton>
+      <Add-Product :class="{active: this.addShow}"></Add-Product>
     </div>
 
     <div class="Home-list">
       <Product-Lists></Product-Lists>
     </div>
 
-    <Add-Product v-if="this.addShow"></Add-Product>
+    
 
   </div>
 </template>

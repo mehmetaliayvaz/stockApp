@@ -1,6 +1,6 @@
 <template>
   <div class="AddProduct">
-
+    <div class="AddProduct-layer" @click="$parent.addShow = false;"></div>
     <div class="AddProduct-input">
       <span>
       <label for="">Ürün Adı: </label>
@@ -26,14 +26,20 @@
         <label for="">Fiyat: </label>
         <input type="text" name="" id="">
       </span>
+      <Buton></Buton>
     </div>
 
   </div>
 </template>
   
 <script>
+import Buton from './Buton';
+
 export default {
   name: 'AddProduct',
+  components:{
+    Buton,
+  }
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="Header">
-    <h3>STOCKAPP</h3>
+    <router-link to="/"><h3>STOCKAPP</h3></router-link>
   </div>
 </template>
   
