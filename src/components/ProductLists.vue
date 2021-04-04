@@ -10,15 +10,16 @@
         <th>Stok</th>
         <th>Fiyat</th>
       </tr>
-      <Product-List></Product-List>
-      <Product-List></Product-List>
-      <Product-List></Product-List>
+      <template v-for="product in getProducts">
+        <Product-List :product="product" :key="product.id"></Product-List>
+      </template>
     </table>
   </div>
 </template>
   
 <script>
 import ProductList from './ProductList';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'ProductLists',
@@ -29,8 +30,13 @@ export default {
     return{
       
     }
+  },
+  computed:{
+    ...mapGetters(['getProducts'])
   }
+
 }
+
 </script>
 
 <style scoped>

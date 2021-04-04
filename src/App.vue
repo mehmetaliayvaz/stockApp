@@ -25,6 +25,9 @@ export default {
   components: {
     Header,
     Card,
+  },
+  created(){
+    this.$store.dispatch('getStorageProducts');
   }
 
 }

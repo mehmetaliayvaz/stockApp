@@ -4,17 +4,18 @@
     <td>
       <img src="https://i.imgur.com/8vwj8DE.png" alt="">
     </td>
-    <td>Çalışma Masası</td>
-    <td>masa1</td>
-    <td>8548573843584573</td>
-    <td>87</td>
-    <td>400</td>
+    <td>{{ product.name }}</td>
+    <td>{{ product.barcode }}</td>
+    <td>{{ product.id }}</td>
+    <td>{{ product.stock }}</td>
+    <td>{{ product.price }}</td>
   </tr>
 </template>
   
 <script>
 export default {
   name: 'ProductList',
+  props: ['product'],
 }
 </script>
 

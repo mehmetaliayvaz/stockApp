@@ -4,29 +4,29 @@
     <div class="AddProduct-input">
       <span>
       <label for="">Ürün Adı: </label>
-      <input type="text" name="" id="">
+      <input v-model="product.name" type="text" name="" id="">
       </span>
       <span>
         <label for="">İd: </label>
-        <input type="text" name="" id="">
+        <input v-model="product.id" type="text" name="" id="">
       </span>
       <span>
         <label for="">Fotoğraf Linki: </label>
-        <input type="text" name="" id="">
+        <input v-model="product.photoUrl" type="text" name="" id="">
       </span>
       <span>
         <label for="">Barkod: </label>
-        <input type="text" name="" id="">
+        <input v-model="product.barcode" type="text" name="" id="">
       </span>
       <span>
         <label for="">Stok: </label>
-        <input type="text" name="" id="">
+        <input v-model="product.stock" type="text" name="" id="">
       </span>
       <span>
         <label for="">Fiyat: </label>
-        <input type="text" name="" id="">
+        <input v-model="product.price" type="text" name="" id="">
       </span>
-      <Buton></Buton>
+      <Buton @click.native="saveProduct"></Buton>
     </div>
 
   </div>
@@ -39,6 +39,25 @@ export default {
   name: 'AddProduct',
   components:{
     Buton,
+  },
+  data(){
+    return{
+      product: {
+        name: null,
+        id: null,
+        photoUrl: null,
+        barcode: null,
+        stock: null,
+        price: null,
+      }
+    }
+  },
+  methods:{
+    saveProduct(){
+      this.$store.state.products.push(this.product);
+      this.$store.dispatch('setStorageProducts');
+      this.product = {};
+    }
   }
 }
 </script>
