@@ -51,7 +51,7 @@ const store =  new Vuex.Store({
 
     getProducts(state){
       return state.products;
-    }
+    },
 
   },
 

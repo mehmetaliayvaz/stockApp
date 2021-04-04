@@ -5,7 +5,7 @@
         <th>Sıra</th>
         <th>Fotoğraf</th>
         <th>Ad</th>
-        <th>İd</th>
+        <th>İd</th> 
         <th>Barkod</th>
         <th>Stok</th>
         <th>Fiyat</th>

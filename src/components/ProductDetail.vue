@@ -20,11 +20,11 @@
       </div>
       <div class="ProductDetail-card-info">
         <ul>
-          <li>Çalışma Masası</li>
-          <li>masa1</li>
-          <li>654665865746456</li>
-          <li>45</li>
-          <li>350 TL</li>
+          <li>{{ productDetail.name }}</li>
+          <li>{{ productDetail.id }}</li>
+          <li>{{ productDetail.barcode }}</li>
+          <li>{{ productDetail.stock }}</li>
+          <li>{{ productDetail.price }}</li>
         </ul>
       </div>
       <div class="ProductDetail-card-options">
@@ -49,7 +49,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
+  name: 'ProductDetail',
+  data(){
+    return{
+      id: this.$route.params.id,
+      productDetail: null,
+    }
+  },
+  computed: {
+    ...mapGetters(['getProducts'])
+  },
+  created(){
+    this.productDetail = this.getProducts.find(product => product.id == this.id);
+  }
   
 }
 </script>

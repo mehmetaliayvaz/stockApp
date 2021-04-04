@@ -26,7 +26,7 @@
         <label for="">Fiyat: </label>
         <input v-model="product.price" type="text" name="" id="">
       </span>
-      <Buton @click.native="saveProduct"></Buton>
+      <Buton class="Add-product-input-button" @click.native="saveProduct"></Buton>
     </div>
 
   </div>
@@ -63,5 +63,11 @@ export default {
 </script>
 
 <style scoped>
+
+  .Add-product-input-button{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
 
 </style>
