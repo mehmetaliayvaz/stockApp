@@ -3,7 +3,7 @@
 
     <div class="Home-top">
       <Search></Search>
-      <Buton class="Home-top-buton" @click.native="addShowChange"></Buton>
+      <Buton :text="textAdd" class="Home-top-buton" @click.native="addShowChange"></Buton>
       <Add-Product :class="{active: this.addShow}"></Add-Product>
     </div>
 
@@ -33,6 +33,7 @@ export default {
   data(){
     return{
       addShow: false,
+      textAdd: 'Ürün Ekle',
     }
   },
   methods:{

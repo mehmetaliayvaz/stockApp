@@ -3,8 +3,8 @@
     <div class="AddProduct-layer" @click="$parent.addShow = false;"></div>
     <div class="AddProduct-input">
       <span>
-      <label for="">Ürün Adı: </label>
-      <input v-model="product.name" type="text" name="" id="">
+        <label for="">Ürün Adı: </label>
+        <input v-model="product.name" type="text" name="" id="">
       </span>
       <span>
         <label for="">İd: </label>
@@ -26,7 +26,7 @@
         <label for="">Fiyat: </label>
         <input v-model="product.price" type="text" name="" id="">
       </span>
-      <Buton class="Add-product-input-button" @click.native="saveProduct"></Buton>
+      <Buton :text="text" class="Add-product-input-button" @click.native="saveProduct"></Buton>
     </div>
 
   </div>
@@ -42,6 +42,7 @@ export default {
   },
   data(){
     return{
+      text: 'Ürünü Kaydet',
       product: {
         name: null,
         id: null,

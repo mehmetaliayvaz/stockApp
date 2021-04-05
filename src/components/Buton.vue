@@ -1,6 +1,6 @@
 <template>
   <div class="Buton">
-    <Button>Ürün Ekle</Button>
+    <Button>{{ text }}</Button>
   </div>
 </template>
   
@@ -8,6 +8,7 @@
 
 export default {
   name: 'Buton',
+  props: ['text'],
 }
 </script>
 

@@ -10,8 +10,8 @@
         <th>Stok</th>
         <th>Fiyat</th>
       </tr>
-      <template v-for="product in getProducts">
-        <Product-List :product="product" :key="product.id"></Product-List>
+      <template v-for="(product, index) in getProducts">
+        <Product-List :index="index" :product="product" :key="index"></Product-List>
       </template>
     </table>
   </div>

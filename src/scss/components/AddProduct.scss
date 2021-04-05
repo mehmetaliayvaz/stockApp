@@ -41,11 +41,13 @@
       display: flex;
       justify-content: flex-end;
       padding: 10px;
+      align-items: center;
   
   
       label{
         margin-right: 10px;
         min-width: 100px;
+        text-align: right;
       }
   
       input{

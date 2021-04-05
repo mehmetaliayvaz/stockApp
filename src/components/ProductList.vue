@@ -1,9 +1,9 @@
 <template>
   <tr>
-    <td>1</td>
+    <td>{{index + 1}}</td>
     <td>
       <router-link :to="product.id">
-        <img src="https://i.imgur.com/8vwj8DE.png" alt="">
+        <img :src="product.photoUrl" alt="">
       </router-link>
     </td>
     <td>
@@ -11,8 +11,8 @@
         {{ product.name }}
       </router-link>
     </td>
-    <td>{{ product.barcode }}</td>
     <td>{{ product.id }}</td>
+    <td>{{ product.barcode }}</td>
     <td>{{ product.stock }}</td>
     <td>{{ product.price }}</td>
   </tr>
@@ -21,7 +21,7 @@
 <script>
 export default {
   name: 'ProductList',
-  props: ['product'],
+  props: ['product', 'index'],
 }
 </script>
 

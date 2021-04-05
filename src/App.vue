@@ -5,10 +5,10 @@
 
     <div class="container">
       <div class="Cards">
-        <Card :card="card.card1"></Card>
-        <Card :card="card.card2"></Card>
-        <Card :card="card.card3"></Card>
-        <Card :card="card.card4"></Card>
+        <Card :card="card.card1" :info="this.getInfo.product"></Card>
+        <Card :card="card.card2" :info="this.getInfo.totalProduct"></Card>
+        <Card :card="card.card3" :info="this.getInfo.totalPrice"></Card>
+        <Card :card="card.card4" :info="this.getInfo.sales"></Card>
       </div>
       <transition name="fade" mode="out-in">
         <router-view></router-view>
@@ -21,6 +21,7 @@
 <script>
 import Header from './components/Header';
 import Card from './components/Card';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'App',
@@ -35,11 +36,14 @@ export default {
         card2: ['#4099FF', '#72B4FF', 'Toplam Ürün', 'cart'],
         card3: ['#FF4040', '#FF7272', 'Toplam Varlık', 'price-tag'],
         card4: ['#2ED8B6', '#59E0C5', 'Toplam Satış', 'credit-card'],
-      }
+      },
     }
   },
   created(){
     this.$store.dispatch('getStorageProducts');
+  },
+  computed:{
+    ...mapGetters(['getInfo'])
   }
 
 }
