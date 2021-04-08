@@ -52,7 +52,7 @@
           </svg>
         </div>
         <div v-if="editChange" class="ProductDetail-card-options-exit">
-          <Buton @click.native="saveEdit" :text="saveText"></Buton>
+          <Buton  @click.native="saveEdit" :text="'Değişiklikleri Kaydet'"></Buton>
         </div>
       </div>
     </div>
@@ -63,6 +63,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import Buton from './Buton';
+import router from '../router';
 
 export default {
   name: 'ProductDetail',
@@ -74,7 +75,7 @@ export default {
       id: this.$route.params.id,
       productDetail: null,
       editChange: false,
-      saveText: 'Değişiklikleri Kaydet',
+
     }
   },
   computed: {
@@ -92,8 +93,17 @@ export default {
     },
     saveEdit(){
       this.editChange = !this.editChange;
-      this.$store.state.products.push(this.product);
+      var index = this.$store.state.products.findIndex(product => product.id == this.id);
+      this.$store.state.products[index] = this.productDetail;
       this.$store.dispatch('setStorageProducts');
+
+      const path = `/${this.productDetail.id}`
+      router.push(path).catch(error => {
+        if (error.name != "NavigationDuplicated") {
+          throw error;
+        }
+      });
+
     }
   }
   

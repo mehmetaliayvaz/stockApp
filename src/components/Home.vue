@@ -2,13 +2,13 @@
   <div class="Home">
 
     <div class="Home-top">
-      <Search></Search>
+      <Search @data="searchData = $event"></Search>
       <Buton :text="textAdd" class="Home-top-buton" @click.native="addShowChange"></Buton>
-      <Add-Product :class="{active: this.addShow}"></Add-Product>
+      <Add-Product @addShow="addShow = $event" :class="{active: this.addShow}"></Add-Product>
     </div>
 
     <div class="Home-list">
-      <Product-Lists></Product-Lists>
+      <Product-Lists :searchData="searchData"></Product-Lists>
     </div>
 
     
@@ -34,12 +34,13 @@ export default {
     return{
       addShow: false,
       textAdd: 'Ürün Ekle',
+      searchData: '',
     }
   },
   methods:{
     addShowChange(){
       this.addShow = !this.addShow;
-    }
+    },
   }
 }
 </script>

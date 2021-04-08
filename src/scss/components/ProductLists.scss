@@ -6,7 +6,6 @@
   table{
     width: 100%;
     border-collapse: collapse;
-    
 
     th{
       border-bottom: 2px solid #eee;
@@ -14,6 +13,17 @@
       text-align: left;
       padding: 15px;
     }
+  }
+
+  #exampleProduct{
+    border: none;
+    color: #fff;
+    background-color: brown;
+    padding: 10px 50px;
+    border-radius: 3px;
+    cursor: pointer;
+    box-shadow: $shadow;
+    width: 100%;
   }
 
 }

@@ -44,7 +44,7 @@ export default {
   },
   computed:{
     ...mapGetters(['getInfo'])
-  }
+  },
 
 }
 </script>
