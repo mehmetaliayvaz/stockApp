@@ -6,9 +6,11 @@
     </div>
 
     <div class="ProductDetail-card">
+      
       <div class="ProductDetail-card-img">
         <img :src="productDetail.photoUrl" alt="">
       </div>
+
       <div class="ProductDetail-card-title">
         <ul>
           <li>ÜRÜN ADI:</li>
@@ -17,16 +19,13 @@
           <li>STOK:</li>
           <li>FİYAT:</li>
         </ul>
-      </div>
-      <div class="ProductDetail-card-info">
-        <ul v-if="!editChange">
+        <ul id="card-info" v-if="!editChange">
           <li>{{ productDetail.name }}</li>
           <li>{{ productDetail.id }}</li>
           <li>{{ productDetail.barcode }}</li>
           <li>{{ productDetail.stock }}</li>
           <li>{{ productDetail.price }}</li>
         </ul>
-
         <ul v-if="editChange">
           <li><input v-model="productDetail.name" type="text"></li>
           <li><input v-model="productDetail.id" type="text"></li>
@@ -34,8 +33,8 @@
           <li><input v-model="productDetail.stock" type="text"></li>
           <li><input v-model="productDetail.price" type="text"></li>
         </ul> 
-        
       </div>
+
       <div class="ProductDetail-card-options">
         <div class="ProductDetail-card-options-edit">
           <svg v-if="!editChange" @click="editProduct" width="25px" height="25px" viewBox="0 0 20 20">

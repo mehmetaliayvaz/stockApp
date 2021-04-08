@@ -1,0 +1,41 @@
+@media screen and (max-width:655px){
+  .Card{
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .Cards{
+    flex-wrap: wrap;
+  }
+
+  .Home-top{
+    flex-direction: column;
+
+    &-buton{
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+  }
+
+  .Search{
+    input{
+      margin: 10px 0;
+    }
+  }
+
+  .ProductDetail-card{
+    display: flex;
+    flex-direction: column;
+
+    &-img, &-title{
+      margin: 10px auto;
+    }
+
+    &-options-edit{
+      margin-bottom: 30px;
+    }
+
+  }
+
+}
