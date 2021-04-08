@@ -11,8 +11,16 @@
         {{ product.name }}
       </router-link>
     </td>
-    <td>{{ product.id }}</td>
-    <td>{{ product.barcode }}</td>
+    <td>
+      <router-link :to="product.id">
+        {{ product.id }}
+      </router-link>
+    </td>
+    <td>
+      <router-link :to="product.id">
+        {{ product.barcode }}
+      </router-link>
+    </td>
     <td>{{ product.stock }}</td>
     <td>{{ product.price }}</td>
   </tr>

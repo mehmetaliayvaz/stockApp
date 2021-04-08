@@ -46,8 +46,8 @@
           </svg>
         </div>
         <div v-if="!editChange" class="ProductDetail-card-options-exit">
-          <input type="text" placeholder="Ürün çıkışı yap">
-          <svg width="25px" height="25px" viewBox="0 0 20 20">
+          <input v-model="exitProductSales" type="text" placeholder="Ürün çıkışı yap">
+          <svg @click="exitProduct" width="25px" height="25px" viewBox="0 0 20 20">
             <path d="M10 0c5.523 0 10 4.477 10 10s-4.477 10-10 10v0c-5.523 0-10-4.477-10-10s4.477-10 10-10v0zM2 10c0 4.418 3.582 8 8 8s8-3.582 8-8v0c0-4.418-3.582-8-8-8s-8 3.582-8 8v0zM12.54 10.7l-3.54 3.55-1.41-1.41 2.81-2.84-2.8-2.83 1.4-1.41 4.24 4.24-0.7 0.7z"></path>
           </svg>
         </div>
@@ -75,6 +75,7 @@ export default {
       id: this.$route.params.id,
       productDetail: null,
       editChange: false,
+      exitProductSales: null,
 
     }
   },
@@ -104,7 +105,23 @@ export default {
         }
       });
 
+    },
+    exitProduct(){
+      if(this.exitProductSales <= this.productDetail.stock){
+        this.$store.state.info.sales += parseInt(this.exitProductSales);
+        this.$store.dispatch('setStorageSales');
+        
+        var index = this.$store.state.products.findIndex(product => product.id == this.id);
+        this.$store.state.products[index].stock -= this.exitProductSales;
+        this.$store.dispatch('setStorageProducts');
+        this.exitProductSales = null;
+      }
+      else{
+        alert('Stok sayısından fazla ürün çıkışı yapamazsınız.');
+        this.exitProductSales = null;
+      }
     }
+
   }
   
 }

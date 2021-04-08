@@ -59,9 +59,19 @@ export default {
   },
   methods:{
     saveProduct(){
-      this.$store.state.products.push(this.product);
-      this.$store.dispatch('setStorageProducts');
-      this.product = {};
+      if(this.product.name != null && 
+         this.product.id != null && 
+         this.product.photoUrl != null &&
+         this.product.barcode != null &&
+         this.product.stock != null &&
+         this.product.price != null ){
+        this.$store.state.products.push(this.product);
+        this.$store.dispatch('setStorageProducts');
+        this.product = {};
+      }
+      else{
+        alert('boş yer bıraktınız.');
+      }
     },
     changeAddShow(){
       this.$emit("addShow", false);

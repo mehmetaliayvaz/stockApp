@@ -41,12 +41,19 @@ const store =  new Vuex.Store({
     },
     setExampleProducts(state){
       state.products = state.exampleProducts;
+    },
+    setStateSales(state, payload){
+      state.info.sales = payload;
     }
 
   },
 
 
   actions: {
+    setStorageProducts({state, dispatch}){
+      localStorage.setItem('product', JSON.stringify(state.products));
+      dispatch('getStorageProducts');
+    },
     getStorageProducts({commit}){
       if (localStorage.getItem("product") === null){
         commit('setEmptyProducts');
@@ -56,15 +63,19 @@ const store =  new Vuex.Store({
         commit('setStateProducts', storageProducts);
       }
     },
-    setStorageProducts({state}){
-      localStorage.setItem('product', JSON.stringify(state.products));
-      this.dispatch('getStorageProducts');
-    },
     deleteProduct({commit, dispatch}, id){
       commit('deleteStateProduct', id);
       dispatch('setStorageProducts');
       router.push('/');
+    },
+    setStorageSales({state}){
+      localStorage.setItem('sales', JSON.stringify(state.info.sales)); 
+    },
+    getStorageSales({commit}){
+      var storageSales = JSON.parse(localStorage.getItem('sales'));
+      commit('setStateSales', storageSales);
     }
+
   },
 
 

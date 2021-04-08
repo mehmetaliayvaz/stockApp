@@ -41,6 +41,7 @@ export default {
   },
   created(){
     this.$store.dispatch('getStorageProducts');
+    this.$store.dispatch('getStorageSales');
   },
   computed:{
     ...mapGetters(['getInfo'])
