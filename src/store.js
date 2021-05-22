@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import router from './router';
 import Vuex from 'vuex';
+import { exampleProducts } from './exampleProducts';
 
 Vue.use(Vuex);
 
@@ -9,13 +10,6 @@ const store =  new Vuex.Store({
 
   state:{
     products: [],
-    exampleProducts: [
-      {name: "rotring kalem", id: "rotring-kalem", photoUrl: "https://productimages.hepsiburada.net/s/2/375/9554958417970.jpg", barcode: "8690216250218", stock: "100", price: "20"},
-      {name: "faber mavi silgi", id: "faber-silgi", photoUrl: "https://www.istekle.com/images/thumbs/0019703_faber-castell-mavi-silgi_510.jpeg", barcode: "8694535664453", stock: "200", price: "3"},
-      {name: "mopak top kağıt", id: "mopak-kagit", photoUrl: "https://www.igneiplikburada.com/productimages/182749/middle/mopak-rekort-a4-5-koli.jpg", barcode: "8694578653256", stock: "150", price: "25"},
-      {name: "stabilo ince keçeli", id: "stabilo-keceli", photoUrl: "https://www.ankasanat.com/stabilo-point-88-ince-kece-uclu-kalem-25li-kirmizi-rulo-cantali-set-keceli-ve-gazli-kalem-stabilo-indirimli-70554-32-B.jpg", barcode: "8695976129678", stock: "30", price: "85"},
-      {name: "mas sümen takımı", id: "mas-sumen", photoUrl: "https://productimages.hepsiburada.net/s/38/375/10576711647282.jpg", barcode: "8695935692105", stock: "10", price: "340"},
-    ],
     info: {
       product: 0,
       totalProduct: 0,
@@ -40,7 +34,7 @@ const store =  new Vuex.Store({
       state.products.splice(state.products.findIndex(product => product.id == payload), 1);
     },
     setExampleProducts(state){
-      state.products = state.exampleProducts;
+      state.products = exampleProducts;
     },
     setStateSales(state, payload){
       state.info.sales = payload;
@@ -70,9 +64,15 @@ const store =  new Vuex.Store({
     },
     setStorageSales({state}){
       localStorage.setItem('sales', JSON.stringify(state.info.sales)); 
+
     },
     getStorageSales({commit}){
-      var storageSales = JSON.parse(localStorage.getItem('sales'));
+      var sales = JSON.parse(localStorage.getItem('sales'));
+      var storageSales = 0;
+      if(sales != null){
+        storageSales = sales;
+      }
+      
       commit('setStateSales', storageSales);
     }
 

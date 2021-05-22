@@ -25,7 +25,7 @@
       </span>
       <span>
         <label for="">Stok: </label>
-        <input v-model="product.stock" type="text">
+        <input v-model="product.stock" type="number">
       </span>
       <span>
         <label for="">Fiyat: </label>

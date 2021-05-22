@@ -7,12 +7,14 @@
       <div class="Cards">
         <Card :card="card.card1" :info="this.getInfo.product"></Card>
         <Card :card="card.card2" :info="this.getInfo.totalProduct"></Card>
-        <Card :card="card.card3" :info="this.getInfo.totalPrice"></Card>
+        <Card :card="card.card3" :info="this.getInfo.totalPrice" :tl="true"></Card>
         <Card :card="card.card4" :info="this.getInfo.sales"></Card>
       </div>
       <transition name="fade" mode="out-in">
         <router-view></router-view>
       </transition>
+
+      <p v-if="this.$route.path == '/'" id="totalText" @click="deleteTotalProduct">Toplam Satışı Sıfırlamak için Tıklayın</p>
     
     </div>
   </div>
@@ -46,6 +48,12 @@ export default {
   computed:{
     ...mapGetters(['getInfo'])
   },
+  methods:{
+    deleteTotalProduct(){
+      localStorage.removeItem("sales");
+      this.$store.dispatch('getStorageSales');
+    }
+  }
 
 }
 </script>
@@ -58,6 +66,13 @@ export default {
     justify-content: space-between;
     margin-top: 30px;
 
+  }
+
+  #totalText{
+    text-align: center;
+    margin-bottom: 30px;
+    cursor: pointer;
+    font-weight: bold;
   }
 
   .fade-enter{

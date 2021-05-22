@@ -17,14 +17,15 @@
 
     <svg width="25" height="25" :class="['icon', 'icon-'+card[3]]"><use :xlink:href="'#icon-'+card[3]"></use></svg>
     <h3>{{ card[2] }}</h3>
-    <h3>{{ info }}</h3>
+    <h3 v-if="!tl">{{ info }}</h3>
+    <h3 v-if="tl">{{ info }} ₺</h3>
   </div>
 </template>
   
 <script>
 export default {
   name: 'Card',
-  props: ['card', 'info'],
+  props: ['card', 'info', 'tl'],
 }
 </script>
 

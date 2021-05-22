@@ -15,7 +15,6 @@
       </template>
     </table>
     <button v-if="showProductsButton" id="exampleProduct" @click="getExampleProducts">Örnek Ürünler Getirmek için Tıkla</button>
-
   </div>
 </template>
   
