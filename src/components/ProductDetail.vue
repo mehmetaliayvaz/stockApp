@@ -103,7 +103,7 @@ export default {
           throw error;
         }
       });
-
+      this.productDetail = this.getProducts.find(product => product.id == this.id);
     },
     exitProduct(){
       if(parseInt(this.exitProductSales) <= this.productDetail.stock){
@@ -119,6 +119,7 @@ export default {
         alert('Stok sayısından fazla ürün çıkışı yapamazsınız.');
         this.exitProductSales = null;
       }
+      this.productDetail = this.getProducts.find(product => product.id == this.id);
     }
 
   }
