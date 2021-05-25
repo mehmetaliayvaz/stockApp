@@ -1,6 +1,6 @@
 <template>
   <div class="AddProduct">
-    <div class="AddProduct-layer" @click="$parent.addShow = false;"></div>
+    <div class="AddProduct-layer" @click="$parent.addShow = false"></div>
     <div class="AddProduct-input">
       <div class="AddProduct-input-exit">
         <svg @click="changeAddShow" viewBox="0 0 32 32" width="25" height="25">
