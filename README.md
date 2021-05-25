@@ -1,6 +1,6 @@
 # stockapp
 
-##Proje Hakkında
+## Proje Hakkında
 
 Bu proje temel işlevleri olan bir ürün stok takip uygulamasıdır. Ürün ekleme, düzenleme, silme, listeleme işlemleri yapılabilmektedir.
 Ürün bilgilerinin depolanması localstorage üzerinden yapılmaktadır.
