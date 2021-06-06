@@ -97,8 +97,8 @@ export default {
       this.$store.state.products[index] = this.productDetail;
       this.$store.dispatch('setStorageProducts');
 
-      const path = `/${this.productDetail.id}`
-      router.push(path).catch(error => {
+      //const path = `/${this.productDetail.id}`
+      router.push('/').catch(error => {
         if (error.name != "NavigationDuplicated") {
           throw error;
         }
