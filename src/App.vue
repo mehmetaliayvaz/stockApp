@@ -8,7 +8,7 @@
         <Card :card="card.card1" :info="this.getInfo.product"></Card>
         <Card :card="card.card2" :info="this.getInfo.totalProduct"></Card>
         <Card :card="card.card3" :info="this.getInfo.totalPrice" :tl="true"></Card>
-        <Card :card="card.card4" :info="this.getInfo.sales"></Card>
+        <Card :card="card.card4" :info="this.getInfo.sales" :tl="true"></Card>
       </div>
       <transition name="fade" mode="out-in">
         <router-view></router-view>

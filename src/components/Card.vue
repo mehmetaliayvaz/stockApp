@@ -18,7 +18,7 @@
     <svg width="25" height="25" :class="['icon', 'icon-'+card[3]]"><use :xlink:href="'#icon-'+card[3]"></use></svg>
     <h3>{{ card[2] }}</h3>
     <h3 v-if="!tl">{{ info }}</h3>
-    <h3 v-if="tl">{{ info }} ₺</h3>
+    <h3 v-if="tl">{{ info | tl}} ₺</h3>
   </div>
 </template>
   
@@ -26,6 +26,12 @@
 export default {
   name: 'Card',
   props: ['card', 'info', 'tl'],
+  filters: {
+    tl(value){
+  
+      return value.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1'+".");
+    }
+  }
 }
 </script>
 
